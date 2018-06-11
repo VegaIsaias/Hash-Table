@@ -1,0 +1,17 @@
+5in1del2srch.txt contains:
+i luann
+i mayor
+i sarah
+i snake
+i cletus
+s sarah
+s grampa
+p
+Search for sarah successful.
+Search for grampa failed.
+The Hash Table contains:
+0. List (first->last): 
+1. List (first->last): 1/luann;
+2. List (first->last): 2/snake;
+3. List (first->last): 
+4. List (first->last): 4/mayor;4/sarah;4/cletus;

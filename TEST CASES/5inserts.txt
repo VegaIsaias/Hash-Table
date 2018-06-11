@@ -1,0 +1,11 @@
+i homer
+
+i marge
+
+i nelson
+
+i gloria
+
+i duffman
+
+p

@@ -1,0 +1,32 @@
+10in.txt contains:
+i lois
+i mona
+i ruth
+i agnes
+i amber
+i arnie
+i artie
+i chief
+i judge
+p
+The Hash Table contains:
+0. List (first->last): 
+1. List (first->last): 
+2. List (first->last): 2/agnes;
+3. List (first->last): 3/artie;3/judge;
+4. List (first->last): 
+5. List (first->last): 
+6. List (first->last): 
+7. List (first->last): 
+8. List (first->last): 
+9. List (first->last): 9/arnie;9/chief;
+10. List (first->last): 
+11. List (first->last): 11/ruth;11/amber;
+12. List (first->last): 
+13. List (first->last): 13/lois;13/mona;
+14. List (first->last): 
+15. List (first->last): 
+16. List (first->last): 
+17. List (first->last): 
+18. List (first->last): 
+19. List (first->last): 
