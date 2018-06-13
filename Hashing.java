@@ -22,7 +22,6 @@ public class Hashing {
             readList(fileName, input);
             
             // State output
-            ComplexityIndicator();
             printList(input, fileName);
             System.out.println();
             
@@ -39,13 +38,6 @@ public class Hashing {
         }   
     }
 
-	// Complexity function
-    public static void ComplexityIndicator() {
-        String nid = "is352549;";
-        double difficulty = 3.2;
-        double duration = 21.5;
-        System.err.println(nid + difficulty + ";" + duration + ";");
-    }
     
     // Reads file at file, returns arrayList with Nodes(cmm, name) initiated //
     public static ArrayList readList(File file, ArrayList<Node> table) {
