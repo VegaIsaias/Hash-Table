@@ -181,7 +181,157 @@ public class Hashing {
     }
 
     
+    // Class represents one node in list
+    static class ListNode<T> {
+        // package access members; List can access these directly 
+        T data; 
+        ListNode<T> nextNode; 
+
+        // constructor creates a ListNode that refers to object
+        ListNode(T object) { this(object, null); }  
+
+        // constructor creates ListNode that refers to the specified
+        // object and to the next ListNode
+        ListNode(T object, ListNode<T> node) {
+            data = object;    
+            nextNode = node;  
+        } 
+
+        // return reference to data in node
+        T getData() { return data;} 
+
+        // return reference to next node in list
+        ListNode<T> getNext() { return nextNode; } 
+   
+    } 
+
+    // class List definition
+    public static class List<T> {
+        private ListNode<T> firstNode;
+        private ListNode<T> lastNode;
+        private String name; 
+
+        // constructor creates empty List with "list" as the name
+        public List() { this("list"); } 
+
+        // constructor creates an empty List with a name
+        public List(String listName) {
+        name = listName;
+        firstNode = lastNode = null;
+        } 
+
+        // insert item at front of List
+        public void insertAtFront(T insertItem) {
+            if (isEmpty()) 
+                firstNode = lastNode = new ListNode<T>(insertItem);
+            else // firstNode refers to new node
+                firstNode = new ListNode<T>(insertItem, firstNode);
+        }
+   
+        // Search for name
+        public void search(String name, int key) {
+            if (isEmpty()) {
+                System.out.println("Search for " + name + " failed.");
+            }
+            else if (firstNode.getData().equals(name)) {
+                System.out.print("Search for " + name + " successful.");
+                print(key);
+            } else {
+                ListNode<T> current = firstNode;
+                while(current != null) {
+                    if (current.getData().equals(name)) {
+                        System.out.println("Search for " + name + " successful.");
+                    }
+                    current = current.nextNode;
+                }
+            }
+        }
+        
+        // Delete from List
+        public void deleteName(String name, int key) {
+            ListNode<T> current = firstNode;
+            ListNode<T> temp = current;
+            boolean deleted = false;
+            
+             // Base case - Empty list
+            if (isEmpty()) {
+                System.out.println(name + " not found - not deleted.");
+            } else 
+                
+            // Base case - Name at front
+            if (firstNode.getData().equals(name)) {  
+                firstNode = firstNode.nextNode;
+                deleted = true;
+                System.out.println(name + " found and deleted.");
+            }
+            
+            // Name somewhere else in list
+            while(current != null) {
+                
+                // Found, delete and stitch list
+                if (current.getData().equals(name)) {
+                    ListNode<T> link = current.nextNode;
+                    current = null;
+                    temp.nextNode = link;
+                    deleted = true;
+                    System.out.println(name + " found and deleted.");
+                    break;
+                }
+                temp = current;
+                current = current.nextNode;
+            }
+            
+            if (!deleted) {
+                System.out.println(name + " not found - not deleted.");
+            }
+        }
+
+        // insert item at end of List
+        public void insertAtBack(T insertItem) {
+            if (isEmpty()) // firstNode and lastNode refer to same object
+                firstNode = lastNode = new  ListNode<T>(insertItem);
+            else // lastNode's nextNode refers to new node
+                lastNode = lastNode.nextNode = new ListNode<T>(insertItem);
+        } 
+
+        // determine whether list is empty
+        public boolean isEmpty() { 
+            return firstNode == null;
+        } 
+
+        // output list contents
+        public void print(int key) {
+            if (isEmpty()) {
+                System.out.printf("%d. List (first->last): \n", key);
+                return;
+            }
+
+            System.out.printf("%d. List (first->last): ", key);
+            ListNode<T> current = firstNode;
+
+            // while not at end of list, output current node's data
+            while (current != null) {
+                System.out.printf("%d/%s;", key, current.data);
+                current = current.nextNode;
+            }
+            System.out.println();
+        } 
+    } 
+
+    public static class EmptyListException extends RuntimeException {
+        // constructor
+        public EmptyListException(){
+            this("List"); // call other EmptyListException constructor
+        }
+    
+        // constructor
+        public EmptyListException(String name) {
+            super(name + " is empty"); // call superclass constructor
+        } 
+    }
 }
+    
+
 
 
 
